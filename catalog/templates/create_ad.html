@@ -1,0 +1,8 @@
+<h2>Создать объявление</h2>
+
+<form method="POST">
+     <li><a href="{% url 'index' %}">Home</a></li>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create Ad">
+</form>

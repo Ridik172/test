@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+
+{% if messages %}
+        	{% for message in messages %}
+          	<div class="alert alert-{{ message.tags }}">
+            	{{ message }}
+          	</div>
+        	{% endfor %}
+{% endif %}
+
+
+
+{% for ad in ads %}
+    <h2>{{ ad.title }}</h2>
+    <p>{{ ad.description }}</p>
+    <hr>
+{% endfor %}
+
+{% block content %}
+<h1>Local IP Home</h1>
+
+  <p>Welcome to <em>Local Work</em>, Это главная страница.</p>
+
+<h2>Dynamic content</h2>
+
+  <p>Виды работ</p>
+  <ul>
+    <li><strong>Works:</strong> {{ num_works }}</li>
+    <li><strong>Copies:</strong> {{ num_instances }}</li>
+    <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
+    <li><strong>Proletarys:</strong> {{ num_proletarys }}</li>
+
+  </ul>
+
+<p>
+  You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{%
+  else %} times{% endif %}.
+</p>
+
+
+{% endblock %}

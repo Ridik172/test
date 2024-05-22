@@ -1,0 +1,16 @@
+<form method="POST" action="{% url 'ad_search' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Искать</button>
+</form>
+
+{% if results %}
+  <h2>Результаты поиска:</h2>
+  <ul>
+    {% for ad in results %}
+      <li>{{ ad.title }}</li>
+    {% empty %}
+      <li>По вашему запросу ничего не найдено.</li>
+    {% endfor %}
+  </ul>
+{% endif %}
